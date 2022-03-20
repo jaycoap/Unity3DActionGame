@@ -76,5 +76,20 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+
+    public void OnSkillDown()
+    {
+        if (Time.time - lastDashTime > 1f)
+        {
+            lastDashTime = Time.time;
+            dashing = true;
+            avatar.SetTrigger("Dash");
+        }
+    }
+
+    public void OnDashUp()
+    {
+        dashing = false;
+    }
 }
 
