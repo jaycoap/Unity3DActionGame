@@ -117,7 +117,7 @@ public class TouchPad : MonoBehaviour
 
         if(_player != null) //플레이어가 연결되어 있다면
         {
-            _player.OnstickChanged(normDiff); // 플레이어에게 변경된 좌표를 전달..
+            _player.OnstickChanged(normDiff); // 플레이어에게 변경된 좌표를 전달.
         }
     }
     
