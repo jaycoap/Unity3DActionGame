@@ -92,6 +92,7 @@ public class TouchPad : MonoBehaviour
 
     void HandleInput(Vector3 input)
     {
+
         if (_buttonPressed)//버튼이 눌러진 상황이라면
         {
             Vector3 diffVector = (input - _startPos); // 방향 컨트롤러의 기준 좌표로부터 입력 받은 좌표가 얼마나 떨어져 있는지 구함

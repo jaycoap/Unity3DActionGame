@@ -26,12 +26,10 @@ public class PlayerMovement : MonoBehaviour
         v = stickPos.y;
     }
 
-    private void Update()
+    void Update()
     {
         if (avatar) //animator가 있어야 실행 가능
         {
-            float back = 1f;
-            if (v < 0f) back = -1f;
 
             avatar.SetFloat("Speed", (h * h + v * v)); // 속도 값 전달
 
