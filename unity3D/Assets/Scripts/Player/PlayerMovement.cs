@@ -9,14 +9,21 @@ public class PlayerMovement : MonoBehaviour
 
     protected Animator avatar; // 게임 오브젝트에 붙어있는 Animator 컴포넌트를 가져온다.
 
+    // lastAttackTime: 마지막으로 공격을 누른시점
+    // lastSkillTime: 마지막으로 스킬을 누른 시점
+    // lastDashTime: 마지막으로 대쉬를 누른 시점
     float lastAttackTime, lastSkillTime, lastDashTime;
+
     public bool attacking = false;
+
     public bool dashing = false;
+
     float h, v;
 
     private void Start()
     {
         avatar = GetComponent<Animator>();
+        //playerAttack = GetComponent<PlayerAttack>();
     }
 
 
@@ -26,29 +33,7 @@ public class PlayerMovement : MonoBehaviour
         v = stickPos.y;
     }
 
-    void Update()
-    {
-        if (avatar) //animator가 있어야 실행 가능
-        {
-
-            avatar.SetFloat("Speed", (h * h + v * v)); // 속도 값 전달
-
-            Rigidbody rigidbody = GetComponent<Rigidbody>();
-
-            if (rigidbody)
-            {
-                Vector3 speed = rigidbody.velocity;
-                speed.x = 4 * h;
-                speed.z = 4 * v;
-                rigidbody.velocity = speed;
-                if(h!=0f && v != 0f) // 캐릭터의 방향전환은 즉시 이루어짐, Animator전달 x, 코드상에서 자체적으로 해결.
-                {
-                    transform.rotation = Quaternion.LookRotation(new Vector3(h, 0f, v));
-
-                }
-            }
-        }   
-    }
+    
     public void OnAttackDown()//공격중을 체크하는 함수
     {
         attacking = true;
@@ -80,7 +65,6 @@ public class PlayerMovement : MonoBehaviour
         if (Time.time - lastDashTime > 1f)
         {
             lastDashTime = Time.time;
-            dashing = true;
             avatar.SetTrigger("Dash");
         }
     }
@@ -88,6 +72,42 @@ public class PlayerMovement : MonoBehaviour
     public void OnDashUp()
     {
         dashing = false;
+    }
+    public void OnDashDown()
+    {
+        if(Time.time - lastDashTime < 1f)
+        {
+            lastDashTime = Time.time;
+            dashing = true;
+            avatar.SetTrigger("Dash");
+        }
+    }
+
+    void Update()
+    {
+        if (avatar) //animator가 있어야 실행 가능
+        {
+            float back = 1f;
+
+            if (v < 0f) back = 1f;
+
+            avatar.SetFloat("Speed", (h * h + v * v)); // 속도 값 전달
+
+            Rigidbody rigidbody = GetComponent<Rigidbody>();
+
+            if (rigidbody)
+            {
+                Vector3 speed = rigidbody.velocity;
+                speed.x = 4 * h;
+                speed.z = 4 * v;
+                rigidbody.velocity = speed;
+                if (h != 0f && v != 0f) // 캐릭터의 방향전환은 즉시 이루어짐, Animator전달 x, 코드상에서 자체적으로 해결.
+                {
+                    transform.rotation = Quaternion.LookRotation(new Vector3(h, 0f, v));
+
+                }
+            }
+        }
     }
 }
 
