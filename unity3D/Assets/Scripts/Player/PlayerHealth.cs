@@ -48,4 +48,15 @@ public class PlayerHealth : MonoBehaviour
             anim.SetTrigger("Damage");
         }
     }
+
+    void Death()
+    {
+        isDead = true; // 캐릭터가 죽었다면 isDead 플래그를 True로 설정.
+
+        anim.SetTrigger("Die"); // 애니메이션에서 Die라는 트리거 발동.
+
+        playerMovement.enabled = false; // 캐릭터의 움직임을 관리하난 PlayerMovement 스크립트를 비활성화.
+
+
+    }
 }

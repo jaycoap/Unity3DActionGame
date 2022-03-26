@@ -2272,6 +2272,7 @@ GameObject:
   - component: {fileID: 3714333888531785864}
   - component: {fileID: 1872313299422803923}
   - component: {fileID: 7637350767205572645}
+  - component: {fileID: 2395670888337412908}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -2485,6 +2486,23 @@ MonoBehaviour:
   distanceAway: 7
   distanceUp: 4
   follow: {fileID: 443276}
+--- !u!114 &2395670888337412908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1791e6a930e543479efc349b3bec03e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startHealth: 100
+  currentHealth: 0
+  healthSlider: {fileID: 0}
+  damageImage: {fileID: 0}
+  deathCilp: {fileID: 0}
 --- !u!1 &143278
 GameObject:
   m_ObjectHideFlags: 0

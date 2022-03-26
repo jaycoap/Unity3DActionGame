@@ -574,6 +574,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2395670888337412908, guid: fbd485bf4dc8942cabdb19eea2d9a2d1,
+        type: 3}
+      propertyPath: healthSlider
+      value: 
+      objectReference: {fileID: 668415845}
     - target: {fileID: 5649834977175654273, guid: fbd485bf4dc8942cabdb19eea2d9a2d1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -897,6 +902,7 @@ GameObject:
   m_Component:
   - component: {fileID: 668415844}
   - component: {fileID: 668415845}
+  - component: {fileID: 668415846}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -975,6 +981,23 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &668415846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668415843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1791e6a930e543479efc349b3bec03e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startHealth: 100
+  currentHealth: 0
+  healthSlider: {fileID: 0}
+  damageImage: {fileID: 0}
+  deathCilp: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
