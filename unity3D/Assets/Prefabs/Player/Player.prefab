@@ -2272,6 +2272,7 @@ GameObject:
   - component: {fileID: 3714333888531785864}
   - component: {fileID: 1872313299422803923}
   - component: {fileID: 2395670888337412908}
+  - component: {fileID: 6813155474180083018}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -2489,6 +2490,23 @@ MonoBehaviour:
   healthSlider: {fileID: 0}
   damageImage: {fileID: 0}
   deathCilp: {fileID: 0}
+--- !u!114 &6813155474180083018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 033d833f4a585094184e10cb029e3e55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NormalDamage: 10
+  SkillDamage: 30
+  DashDamage: 30
+  normalTarget: {fileID: 0}
+  skillTarget: {fileID: 0}
 --- !u!1 &143278
 GameObject:
   m_ObjectHideFlags: 0
