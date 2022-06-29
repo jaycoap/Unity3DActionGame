@@ -18,7 +18,11 @@ public class PlayerHealth : MonoBehaviour
 
     PlayerMovement playerMovement; // 플레이어의 움직임을 관리하는 PlayerMovement 스크립트 컴포넌트
 
-    bool isDead; // 플레이어가 죽었는지 저장하는 플래그
+    public float flshSpeed = 5f;
+    public Color flashColour = new Color(1f, 0f, 0f, 100f / 250f);
+
+    bool isDead; // 플레이어가 죽었는지 저장하는 변수
+    bool damaged; // 플레이어가 피해를 입었는지 저장하는 변수
 
     void Awake()
     {
@@ -32,9 +36,24 @@ public class PlayerHealth : MonoBehaviour
 
     }
 
+    void Update()
+    {
+        if (damaged)
+        {
+            damageImage.color = flashColour;//데미지를 받자마자 빨간색으로 변경.
+        }
+        else
+        {
+            damageImage.color = Color.Lerp(damageImage.color, Color.clear, flshSpeed * Time.deltaTime); // 공격 받은 후에는 서서히 투명한 색으로 변경.
+        }
+        damaged = false;
+    }
+
     // 플레이어가 공격을 받았을때 호출함수
     public void TakeDamage (int amount)
     {
+        damaged = true;
+
         currentHealth -= amount; //데미지를 입었을시 현재 체력에서 데미지 값을 차감
 
         healthSlider.value = currentHealth; // 체력게이지의 값을 현재체력과 동일하게 함.
@@ -51,6 +70,9 @@ public class PlayerHealth : MonoBehaviour
 
     void Death()
     {
+
+        StageController.instance.FinishGame();
+
         isDead = true; // 캐릭터가 죽었다면 isDead 플래그를 True로 설정.
 
         anim.SetTrigger("Die"); // 애니메이션에서 Die라는 트리거 발동.
