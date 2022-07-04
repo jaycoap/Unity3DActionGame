@@ -111,7 +111,7 @@ public class EnemyHealth : MonoBehaviour
         isDead = true;
 
         // 점수를 추가
-        StageController.instance.AddPoint(10);
+        StageController.Instance.AddPoint(10);
 
         // Trigger가 몬스터의 Collider를 true가 되도록 변경
         // Trigger가 true면 지면이나 플레이어와 충돌하지않음.

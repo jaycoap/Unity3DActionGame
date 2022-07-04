@@ -11,15 +11,10 @@ public class DialogData
 
     public DialogData(DialogType type)
     {
-        this.Type = type;
+        Type = type;
     }
  }
-public enum DialogType
-{
-    alert,
-    confirm,
-    Ranking
-}
+
 public class DialogController : MonoBehaviour
 {
     public Transform window;
@@ -68,7 +63,7 @@ public class DialogController : MonoBehaviour
 
     public virtual void build(DialogData data)
     {
-
+        
     }
 
     public void Show(Action callback)

@@ -71,7 +71,7 @@ public class PlayerHealth : MonoBehaviour
     void Death()
     {
 
-        StageController.instance.FinishGame();
+        StageController.Instance.FinishGame();
 
         isDead = true; // 캐릭터가 죽었다면 isDead 플래그를 True로 설정.
 
