@@ -26,8 +26,8 @@ public class DialogDataAlert : DialogData
 
     public DialogDataAlert(string title, string message, Action callback = null) : base(DialogType.Alert)
     {
-        Title = title;
-        Message = message;
-        Callback = callback;
+        this.Title = title;
+        this.Message = message;
+        this.Callback = callback;
     }
 }

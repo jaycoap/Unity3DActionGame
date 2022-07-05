@@ -41,7 +41,7 @@ public class DialogControllerAlert : DialogController
             return;
         }
         //DialogDataAlert로 데이터를 받고 화면의 제목과 메시지의 내용을 입력
-        Data = Data as DialogDataAlert;
+        Data = data as DialogDataAlert;
         LabelTitle.text = Data.Title;
         LabelMessage.text = Data.Message;
     }
